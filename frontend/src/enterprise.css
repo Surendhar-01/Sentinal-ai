@@ -1,0 +1,225 @@
+.sovereignty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #285849;
+  background: linear-gradient(90deg, #10251f, #0d1a16);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: inset 3px 0 0 #0d9e78, 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sovereignty > svg { color: #55e5b7; }
+.sovereignty small, .sovereignty b { display: block; }
+.sovereignty small { font: 8px 'JetBrains Mono'; color: #75948b; letter-spacing: 1px; }
+.sovereignty b { color: #55e5b7; font: 11px 'JetBrains Mono'; margin-top: 3px; }
+.sovereignty > span { margin-left: auto; color: #849692; font: 9px 'JetBrains Mono'; }
+
+.workbench-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.15fr 1fr;
+  gap: 14px;
+}
+
+.workbench-grid .panel { min-width: 0; }
+
+.mission { padding-bottom: 16px; }
+
+.mission textarea {
+  width: calc(100% - 28px);
+  height: 220px;
+  margin: 14px;
+  background: #091210;
+  border: 1px solid #2a3b37;
+  color: #dce7e5;
+  padding: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mission textarea:focus {
+  border-color: #2a6b58;
+  box-shadow: 0 0 0 3px rgba(85, 229, 183, 0.08);
+  outline: none;
+}
+
+.mission > button {
+  margin: 0 14px;
+  width: calc(100% - 28px);
+  justify-content: center;
+}
+
+.mission > small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #60736f;
+  margin-top: 12px;
+  font-size: 11px;
+}
+
+.execution, .proof { min-height: 540px; }
+
+.mini-task {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #1d2b28;
+  transition: background 0.2s ease;
+}
+
+.mini-task:hover { background: rgba(85, 229, 183, 0.02); }
+.mini-task > span { color: #55e5b7; }
+.mini-task b, .mini-task small { display: block; }
+.mini-task b { font-size: 12px; }
+.mini-task small { font-size: 10px; color: #60736f; margin-top: 2px; }
+.mini-task em {
+  font: 7px 'JetBrains Mono';
+  font-style: normal;
+  color: #70b9a3;
+  letter-spacing: 0.5px;
+}
+
+.mini-task.status-running { background: #10261f; }
+.mini-task.status-failed > span, .mini-task.status-failed em { color: #ef786d; }
+.mini-task.status-waiting_approval > span, .mini-task.status-waiting_approval em { color: #e4ad58; }
+
+.verification {
+  margin: 14px;
+  padding: 14px;
+  border: 1px solid #315c50;
+  background: #112820;
+  border-radius: 8px;
+  box-shadow: inset 3px 0 0 #0d9e78;
+}
+
+.verification b { color: #55e5b7; font: 9px 'JetBrains Mono'; letter-spacing: 0.5px; }
+.verification strong { float: right; color: #9ce8d0; font-size: 14px; }
+.verification p { font-size: 11px; line-height: 1.6; margin: 8px 0; }
+.verification small { font: 7px 'JetBrains Mono'; color: #79928a; }
+
+.verification.unsupported, .verification.contradicted {
+  border-color: #753d38;
+  background: #281614;
+}
+
+.verification.unsupported b, .verification.contradicted b { color: #f18379; }
+
+.verification.requires_human_review, .verification.partially_verified {
+  border-color: #75582e;
+  background: #271f13;
+}
+
+.verification.requires_human_review b, .verification.partially_verified b { color: #edb35d; }
+
+.proof-item {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  border-top: 1px solid #1d2b28;
+  transition: background 0.2s ease;
+}
+
+.proof-item:hover { background: rgba(85, 229, 183, 0.02); }
+.proof-item > svg { min-width: 16px; width: 16px; color: #55e5b7; margin-top: 2px; }
+.proof-item b { font-size: 10px; }
+.proof-item p {
+  color: #7a8c87;
+  font-size: 10px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.proof-item small { font: 7px 'JetBrains Mono'; color: #55e5b7; }
+
+.work-audit { grid-column: 1 / -1; min-height: 130px; }
+
+.work-audit > div:not(.panel-head) {
+  display: grid;
+  grid-template-columns: 100px 180px 1fr;
+  padding: 10px 16px;
+  border-bottom: 1px solid #1b2927;
+  font-size: 10px;
+}
+
+.work-audit time { font-family: 'JetBrains Mono'; color: #60736f; }
+.work-audit span { color: #71847f; }
+.work-audit > span { display: block; padding: 20px; color: #60736f; font-size: 11px; }
+
+.approval-evidence {
+  background: #091210;
+  border: 1px solid #253632;
+  padding: 14px;
+  margin: 16px 20px;
+  border-radius: 8px;
+}
+
+.approval-evidence > b { font: 8px 'JetBrains Mono'; color: #55e5b7; letter-spacing: 1px; }
+.approval-evidence p {
+  font-size: 11px;
+  border-top: 1px solid #1d2927;
+  padding-top: 8px;
+  margin: 8px 0 0;
+}
+
+.approval-meta {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.approval-meta b { display: block; margin-top: 4px; font-size: 11px; line-height: 1.4; }
+
+.agent-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.agent-card {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.agent-card:hover {
+  transform: translateY(-2px);
+  border-color: #2a6b58;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.agent-card > svg { color: #55e5b7; flex-shrink: 0; }
+.agent-card h3 { margin: 0; font-size: 14px; }
+.agent-card span { font: 8px 'JetBrains Mono'; color: #55e5b7; }
+.agent-card p { font-size: 11px; color: #81928e; margin: 6px 0; }
+.agent-card small { font: 7px 'JetBrains Mono'; color: #d9ac65; }
+
+.finding { padding: 20px; margin-bottom: 14px; }
+.finding > .verification { float: right; width: 240px; margin: 0 0 12px 16px; }
+.finding > p { color: #70827d; font-size: 12px; }
+
+@media (max-width: 1150px) {
+  .workbench-grid { grid-template-columns: 1fr 1fr; }
+  .proof { grid-column: 1 / -1; }
+  .agent-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  .workbench-grid { display: block; }
+  .workbench-grid > .panel { margin-bottom: 14px; }
+  .agent-cards { grid-template-columns: 1fr; }
+  .approval-meta { grid-template-columns: 1fr; }
+  .sovereignty > span { display: none; }
+}

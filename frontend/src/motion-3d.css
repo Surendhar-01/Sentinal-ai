@@ -1,0 +1,312 @@
+/* ============================================================
+   SENTINEL-AI — 3D motion layer
+   Loaded last. Purely additive: no colours, no layout changes.
+   Entrance motion uses the individual `translate` / `rotate`
+   properties so it composes with the `transform` hover states
+   below instead of overwriting them.
+   ============================================================ */
+
+/* --- Perspective hosts ------------------------------------- */
+.metrics,
+.grid2,
+.workbench-grid,
+.agent-cards,
+.settings-grid,
+.audit-layout,
+.audit-summary,
+.login {
+  perspective: 1200px;
+  perspective-origin: 50% 0%;
+}
+
+.metric,
+.panel,
+.agent-card,
+.audit-summary > span,
+.user-row,
+.login-card,
+.sovereignty {
+  transform-style: preserve-3d;
+}
+
+/* --- Metric cards: lift out of the plane ------------------- */
+.metric {
+  transform: translateZ(0) rotateX(0deg);
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease;
+}
+
+.metric:hover {
+  transform: translateZ(26px) translateY(-6px) rotateX(5deg);
+  border-color: #8fc0b1;
+  box-shadow:
+    0 22px 44px -14px rgba(8, 123, 93, 0.3),
+    0 6px 14px rgba(28, 55, 48, 0.07);
+}
+
+/* --- Panels: shallow tilt toward the cursor side ----------- */
+.panel {
+  transform: translateZ(0) rotateY(0deg);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateZ(14px) rotateY(-1.1deg);
+  border-color: #b9d3ca;
+  box-shadow:
+    0 18px 38px -16px rgba(28, 55, 48, 0.22),
+    0 7px 22px rgba(28, 55, 48, 0.05);
+}
+
+/* --- Agent cards: stronger swing --------------------------- */
+.agent-card {
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease;
+}
+
+.agent-card:hover {
+  transform: translateZ(30px) translateY(-5px) rotateX(4deg) rotateY(-2.4deg);
+  border-color: #8fc0b1;
+  box-shadow: 0 24px 48px -16px rgba(8, 123, 93, 0.32);
+}
+
+/* --- Sovereignty strip: recede on hover --------------------- */
+.sovereignty {
+  transform: translateZ(0);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sovereignty:hover {
+  transform: translateZ(18px) rotateX(2deg);
+}
+
+/* --- Buttons: press into the surface ----------------------- */
+.primary,
+.searchbar button,
+.login-card button,
+.actions button,
+.sys button,
+.page-actions button {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s ease;
+}
+
+.primary,
+.searchbar button,
+.login-card button {
+  transform: translateZ(0);
+}
+
+.primary:hover,
+.searchbar button:hover,
+.login-card button:hover {
+  transform: translateZ(16px) translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(8, 123, 93, 0.45);
+}
+
+.primary:active,
+.searchbar button:active,
+.login-card button:active,
+.actions button:active {
+  transform: translateZ(-6px) translateY(1px) scale(0.985);
+  box-shadow: 0 2px 6px rgba(28, 55, 48, 0.18);
+}
+
+.actions button:hover,
+.page-actions button:hover {
+  transform: translateZ(10px) translateY(-2px);
+}
+
+.actions button:active,
+.page-actions button:active,
+.sys button:active {
+  transform: translateZ(-4px) translateY(1px);
+}
+
+/* --- Light sweep across primary actions -------------------- */
+.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.42) 48%,
+    transparent 64%
+  );
+  translate: -130% 0;
+  transition: translate 0.65s cubic-bezier(0.3, 0.7, 0.3, 1);
+  pointer-events: none;
+}
+
+.primary:hover::after {
+  translate: 130% 0;
+}
+
+/* --- Sidebar nav: depth on the active rail ----------------- */
+nav button {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+nav button:hover {
+  transform: translateZ(14px) translateX(4px);
+}
+
+nav button.active {
+  transform: translateZ(20px);
+  box-shadow: 0 10px 22px -10px rgba(8, 123, 93, 0.5);
+}
+
+nav button.active::before {
+  box-shadow:
+    0 0 14px rgba(8, 123, 93, 0.5),
+    inset 0 0 6px rgba(255, 255, 255, 0.45);
+}
+
+/* --- Brand mark: hover flip -------------------------------- */
+.mark {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.brand:hover .mark {
+  transform: rotateY(180deg) translateZ(6px);
+}
+
+/* --- Logo spin while the app is booting -------------------- */
+.app-boot .mark {
+  animation: mark-orbit 3.2s ease-in-out infinite;
+}
+
+@keyframes mark-orbit {
+  0%   { transform: rotateY(0deg) translateZ(0); }
+  50%  { transform: rotateY(180deg) translateZ(10px); }
+  100% { transform: rotateY(360deg) translateZ(0); }
+}
+
+/* --- Boot screen: rise into place -------------------------- */
+.app-boot {
+  animation: boot-rise 0.7s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+@keyframes boot-rise {
+  from { opacity: 0; translate: 0 22px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+.app-boot > span {
+  transform: translateZ(0);
+  animation: bar-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes bar-pulse {
+  0%, 100% { transform: translateZ(0) scaleX(1); opacity: 1; }
+  50%      { transform: translateZ(14px) scaleX(1.06); opacity: 0.82; }
+}
+
+/* --- Login card: 3D entrance ------------------------------- */
+.login-card {
+  animation: card-arrive 0.75s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+@keyframes card-arrive {
+  from { opacity: 0; translate: 0 30px; rotate: x 13deg; }
+  to   { opacity: 1; translate: 0 0;    rotate: x 0deg; }
+}
+
+/* --- Page content: staggered 3D entrance ------------------- */
+.page > .sovereignty,
+.page > .metrics > .metric,
+.page > .grid2 > .panel,
+.page > .workbench-grid > .panel,
+.page > .agent-cards > .agent-card,
+.page > .settings-grid > .panel,
+.page > .audit-summary > span,
+.page > .panel {
+  animation: content-rise 0.55s cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+@keyframes content-rise {
+  from { opacity: 0; translate: 0 26px; rotate: x 9deg; }
+  to   { opacity: 1; translate: 0 0;    rotate: x 0deg; }
+}
+
+.page > .sovereignty                        { animation-delay: 0.02s; }
+.page > .metrics > .metric:nth-child(1)     { animation-delay: 0.06s; }
+.page > .metrics > .metric:nth-child(2)     { animation-delay: 0.11s; }
+.page > .metrics > .metric:nth-child(3)     { animation-delay: 0.16s; }
+.page > .metrics > .metric:nth-child(4)     { animation-delay: 0.21s; }
+.page > .grid2 > .panel:nth-child(1)        { animation-delay: 0.26s; }
+.page > .grid2 > .panel:nth-child(2)        { animation-delay: 0.31s; }
+.page > .workbench-grid > .panel:nth-child(1) { animation-delay: 0.08s; }
+.page > .workbench-grid > .panel:nth-child(2) { animation-delay: 0.14s; }
+.page > .workbench-grid > .panel:nth-child(3) { animation-delay: 0.20s; }
+.page > .agent-cards > .agent-card:nth-child(1) { animation-delay: 0.05s; }
+.page > .agent-cards > .agent-card:nth-child(2) { animation-delay: 0.10s; }
+.page > .agent-cards > .agent-card:nth-child(3) { animation-delay: 0.15s; }
+.page > .agent-cards > .agent-card:nth-child(4) { animation-delay: 0.20s; }
+.page > .agent-cards > .agent-card:nth-child(5) { animation-delay: 0.25s; }
+.page > .agent-cards > .agent-card:nth-child(6) { animation-delay: 0.30s; }
+.page > .audit-summary > span:nth-child(1)  { animation-delay: 0.04s; }
+.page > .audit-summary > span:nth-child(2)  { animation-delay: 0.09s; }
+.page > .audit-summary > span:nth-child(3)  { animation-delay: 0.14s; }
+.page > .audit-summary > span:nth-child(4)  { animation-delay: 0.19s; }
+
+/* --- Rows and list items: subtle Z lift -------------------- */
+.agent-row,
+.mini-task,
+.proof-item,
+.evidence article,
+.audit-list > div,
+.user-row,
+.setting-rows > div {
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.2s ease;
+}
+
+.agent-row:hover,
+.mini-task:hover,
+.proof-item:hover,
+.evidence article:hover,
+.user-row:hover {
+  transform: translateX(6px) translateZ(8px);
+}
+
+.audit-list > div:hover,
+.audit-list > div.selected,
+.setting-rows > div:hover {
+  transform: translateX(4px);
+}
+
+/* --- Accessibility ----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+  }
+}

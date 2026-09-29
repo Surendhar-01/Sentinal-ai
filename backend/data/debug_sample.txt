@@ -1,0 +1,1 @@
+Site 7 safety inspection report. A high risk hydraulic leak was identified near the primary pump seal. Maintenance history shows the gasket failed twice. SOP-OPS-14 requires isolation before maintenance. Critical failure risk if ignored.

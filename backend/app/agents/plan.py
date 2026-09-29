@@ -1,0 +1,100 @@
+CONTROLLED_ACTION_MARKERS = (
+    "update the",
+    "update ",
+    "modify the",
+    "write to",
+    "write ",
+    "delete the",
+    "dispatch",
+    "acknowledge",
+    "close ticket",
+    "create a work order",
+    "raise a work order",
+    "send notification",
+    "send ",
+    "apply changes",
+    "execute the change",
+    "record the inspection",
+    "schedule maintenance",
+    "book maintenance",
+)
+
+PLAN: list[dict] = [
+    {
+        "sequence": 1,
+        "agent": "Planner Agent",
+        "description": "Decompose the user request into a scoped, least-privilege execution plan",
+        "objective": "decompose the request into least-privilege agent steps",
+        "tool": "plan.decompose",
+        "data_sources": ["task_outputs"],
+    },
+    {
+        "sequence": 2,
+        "agent": "Document Intelligence Agent",
+        "description": "Read the indexed source documents that are in scope",
+        "objective": "read the indexed source documents in scope",
+        "tool": "document.read",
+        "data_sources": ["uploaded_documents", "document_metadata"],
+    },
+    {
+        "sequence": 3,
+        "agent": "Document Intelligence Agent",
+        "description": "Extract observable findings from the retrieved passages",
+        "objective": "extract observable findings from retrieved passages",
+        "tool": "knowledge.search",
+        "data_sources": ["uploaded_documents"],
+    },
+    {
+        "sequence": 4,
+        "agent": "RAG Agent",
+        "description": "Retrieve the relevant maintenance history",
+        "objective": "retrieve relevant maintenance history",
+        "tool": "knowledge.search",
+        "data_sources": ["chroma_private_knowledge"],
+    },
+    {
+        "sequence": 5,
+        "agent": "RAG Agent",
+        "description": "Retrieve the applicable SOP requirements",
+        "objective": "retrieve applicable SOP requirements",
+        "tool": "knowledge.search",
+        "data_sources": ["chroma_private_knowledge"],
+    },
+    {
+        "sequence": 6,
+        "agent": "Risk Analysis Agent",
+        "description": "Assess severity and recommend risk controls",
+        "objective": "assess severity and recommend risk controls",
+        "tool": "risk.assess",
+        "data_sources": ["retrieved_evidence", "maintenance_history", "sop_documents"],
+    },
+    {
+        "sequence": 7,
+        "agent": "Verification Agent",
+        "description": "Independently verify every finding against the evidence",
+        "objective": "verify every finding against supporting and contradictory evidence",
+        "tool": "evidence.verify",
+        "data_sources": ["retrieved_evidence", "agent_findings"],
+    },
+    {
+        "sequence": 8,
+        "agent": "Tool Agent",
+        "description": "Execute the controlled action only after a human approval is recorded",
+        "objective": "execute the controlled action only after a human approval is recorded",
+        "tool": "controlled.write",
+        "data_sources": ["approved_recommendations"],
+    },
+    {
+        "sequence": 9,
+        "agent": "Planner Agent",
+        "description": "Compose the final evidence-backed response",
+        "objective": "compose the final evidence-backed response",
+        "tool": "response.compose",
+        "data_sources": ["task_outputs", "verified_findings"],
+    },
+]
+
+
+def requires_controlled_action(query: str) -> bool:
+    text = f" {query.lower()} "
+    return any(marker in text for marker in CONTROLLED_ACTION_MARKERS)

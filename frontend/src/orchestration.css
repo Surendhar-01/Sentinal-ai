@@ -1,0 +1,38 @@
+.execution-id {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #21312e;
+  color: #55e5b7 !important;
+  font: 8px 'JetBrains Mono' !important;
+  letter-spacing: 1px;
+}
+
+.task-output {
+  padding: 8px 10px !important;
+  background: #0a1312;
+  border-left: 2px solid #3b7464;
+  color: #849692 !important;
+  border-radius: 0 6px 6px 0;
+}
+
+.trace.status-running {
+  background: #10231f;
+}
+
+.trace.status-running .trace-line svg {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.trace.status-failed .trace-line svg,
+.trace.status-failed > span {
+  color: #ef786d;
+}
+
+.trace.status-waiting_approval .trace-line svg,
+.trace.status-waiting_approval > span {
+  color: #e4ad58;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.35; }
+}
