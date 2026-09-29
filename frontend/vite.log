@@ -323,3 +323,5 @@ Visit https://react.dev/link/error-boundaries to learn more about error boundari
 Check the render method of `section`. It was passed a child from Workbench. See https://react.dev/link/warning-keys for more information.
 [2m3:01:24 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/styles.css[22m
 [2m3:15:57 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/light-theme.css, /src/styles.css[22m
+[2m3:35:21 pm[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m3:35:22 pm[22m [36m[1m[vite][22m[39m server restarted.
