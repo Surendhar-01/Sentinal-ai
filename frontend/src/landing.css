@@ -1,0 +1,365 @@
+:root {
+  --lp-bg: #F4F6F8;
+  --lp-primary: #003366;
+  --lp-text: #1A202C;
+  --lp-text-light: #4A5568;
+  --lp-accent: #3182CE;
+  --lp-glass-bg: rgba(255, 255, 255, 0.7);
+  --lp-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.landing-wrapper {
+  min-height: 100vh;
+  background-color: var(--lp-bg);
+  background-image: url('/server_vault.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--lp-text);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: var(--lp-glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--lp-glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+}
+
+/* Navbar */
+.lp-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 15px 30px;
+  margin-bottom: 60px;
+  z-index: 10;
+}
+
+.lp-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--lp-primary);
+}
+
+.lp-nav-brand svg {
+  color: var(--lp-accent);
+}
+
+.lp-nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.lp-nav-links a {
+  text-decoration: none;
+  color: var(--lp-text);
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.lp-nav-links a:hover {
+  color: var(--lp-accent);
+}
+
+.lp-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lp-btn {
+  background: white;
+  border: 1px solid #E2E8F0;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--lp-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.lp-btn:hover {
+  background: #F8FAFC;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.lp-btn.primary {
+  background: var(--lp-text);
+  color: white;
+  border: none;
+}
+
+.lp-btn.primary:hover {
+  background: #2D3748;
+}
+
+/* Hero Section */
+.lp-hero {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  z-index: 10;
+}
+
+.lp-hero h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0 0 24px;
+  color: var(--lp-primary);
+  letter-spacing: -1px;
+  text-shadow: 0 4px 15px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 1), 0 0 80px rgba(255, 255, 255, 1);
+}
+
+.lp-hero h1 span {
+  color: var(--lp-accent);
+}
+
+.lp-hero p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--lp-text);
+  margin: 0 0 40px;
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 1);
+}
+
+.lp-hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.lp-hero-ctas .lp-btn {
+  padding: 14px 28px;
+  font-size: 16px;
+}
+
+/* Bento Box Content Area */
+.lp-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  z-index: 10;
+}
+
+.lp-widget {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-widget.span-8 {
+  grid-column: span 8;
+}
+
+.lp-widget.span-4 {
+  grid-column: span 4;
+}
+
+.lp-widget.span-12 {
+  grid-column: span 12;
+}
+
+.lp-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lp-widget-header svg {
+  color: var(--lp-accent);
+  background: rgba(49, 130, 206, 0.1);
+  padding: 8px;
+  border-radius: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+.lp-widget-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lp-text);
+}
+
+.lp-widget p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--lp-text-light);
+  line-height: 1.5;
+}
+
+/* Core Features Row */
+.lp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.lp-feature-card {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.lp-feature-card span {
+  font-size: 24px;
+}
+
+.lp-feature-card h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.lp-feature-card p {
+  font-size: 13px;
+  color: var(--lp-text-light);
+}
+
+/* Use Cases Tabs */
+.lp-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.lp-tab {
+  padding: 8px 16px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.lp-tab:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.lp-tab.active {
+  background: white;
+  border-color: #E2E8F0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  color: var(--lp-accent);
+}
+
+.lp-tab-content {
+  background: rgba(255,255,255,0.8);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid white;
+}
+
+.lp-tab-content p {
+  font-size: 15px;
+}
+
+/* Trust Badges */
+.lp-trust {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.lp-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--lp-text-light);
+  background: rgba(255,255,255,0.5);
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+
+/* Footer */
+.lp-footer {
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 60px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  z-index: 10;
+}
+
+.lp-footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.lp-footer-links a {
+  color: var(--lp-text-light);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.lp-footer-links a:hover {
+  color: var(--lp-text);
+}
+
+/* Responsive fallback */
+@media (max-width: 1024px) {
+  .lp-bento-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .lp-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lp-nav-links {
+    display: none;
+  }
+  .lp-hero h1 {
+    font-size: 40px;
+  }
+  .lp-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

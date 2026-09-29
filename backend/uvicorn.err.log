@@ -23,3 +23,21 @@ INFO:     connection closed
 INFO:     ('127.0.0.1', 54418) - "WebSocket /ws/executions?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsInBlcm1pc3Npb25zIjpbImFnZW50czpyZWFkIiwiYXBwcm92YWxzOmRlY2lkZSIsImFwcHJvdmFsczpyZWFkIiwiYXBwcm92YWxzOnJlcXVlc3QiLCJhdWRpdDpyZWFkIiwiY2hhdDpydW4iLCJkb2N1bWVudHM6ZGVsZXRlIiwiZG9jdW1lbnRzOnJlYWQiLCJkb2N1bWVudHM6d3JpdGUiLCJldmlkZW5jZTpyZWFkIiwiZXZpZGVuY2U6d3JpdGUiLCJleGVjdXRpb25zOnJlYWQiLCJleGVjdXRpb25zOnJ1biIsImtub3dsZWRnZTpzZWFyY2giLCJ0YXNrczpyZWFkIiwidGFza3M6d3JpdGUiLCJ0b29sczpyZWFkIiwidXNlcnM6cmVhZCIsInVzZXJzOndyaXRlIl0sImV4cCI6MTc5MDY5MjMxOH0.fy7EfryzheiYkuHw-f2M1DHMlxvr5a0Z_PqjpuV1HeQ" [accepted]
 INFO:     connection open
 INFO:     connection closed
+INFO:     ('127.0.0.1', 53865) - "WebSocket /ws/executions?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsInBlcm1pc3Npb25zIjpbImFnZW50czpyZWFkIiwiYXBwcm92YWxzOmRlY2lkZSIsImFwcHJvdmFsczpyZWFkIiwiYXBwcm92YWxzOnJlcXVlc3QiLCJhdWRpdDpyZWFkIiwiY2hhdDpydW4iLCJkb2N1bWVudHM6ZGVsZXRlIiwiZG9jdW1lbnRzOnJlYWQiLCJkb2N1bWVudHM6d3JpdGUiLCJldmlkZW5jZTpyZWFkIiwiZXZpZGVuY2U6d3JpdGUiLCJleGVjdXRpb25zOnJlYWQiLCJleGVjdXRpb25zOnJ1biIsImtub3dsZWRnZTpzZWFyY2giLCJ0YXNrczpyZWFkIiwidGFza3M6d3JpdGUiLCJ0b29sczpyZWFkIiwidXNlcnM6cmVhZCIsInVzZXJzOndyaXRlIl0sImV4cCI6MTc5MDY5NzY2Mn0.imkGjKtxWiqoZRm-DC62rQI61fs4BiW8JS39ZsgoFq0" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('127.0.0.1', 55796) - "WebSocket /ws/executions?token=null" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 49451) - "WebSocket /ws/executions?token=null" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 65131) - "WebSocket /ws/executions?token=null" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 56215) - "WebSocket /ws/executions?token=null" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 62848) - "WebSocket /ws/executions?token=null" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
