@@ -8,3 +8,4 @@ backend/data/chroma/
 **/__pycache__/
 *.pyc
 .env
+*.log

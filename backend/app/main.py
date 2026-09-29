@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from .adapters import adapter_status, reset_adapter
 from .agents import agent_manifest
-from .config import BASE_DIR, settings
+from .config import settings
 from .database import Base, SessionLocal, engine, ensure_columns, get_db
 from .models import (
     AgentTask,
@@ -49,7 +49,7 @@ from .services.orchestrator import (
 )
 from .services.rag import embed, extract_pages, split_pages
 from .services.tools import registry
-from .services.vector_store import vector_store
+from .services.vector_store import vector_store, vector_store_kind
 
 Base.metadata.create_all(engine)
 MIGRATED_COLUMNS = ensure_columns(engine, Base.metadata)
@@ -295,7 +295,10 @@ async def upload(
             store.add(chunk.id, doc.id, doc.filename, page, text, vector)
         doc.chunk_count = len(pieces)
         doc.status = "indexed"
-        (BASE_DIR / "data" / "uploads" / f"{doc.id}_{doc.filename}").write_bytes(data)
+        try:
+            (settings.uploads_dir / f"{doc.id}_{doc.filename}").write_bytes(data)
+        except OSError:
+            pass
         write_audit(
             db,
             user.username,
@@ -673,7 +676,7 @@ def safe_settings_payload() -> dict:
         "knowledge": {
             "embedding_provider": settings.embedding_provider,
             "embedding_model": settings.embedding_model,
-            "vector_store": settings.vector_store,
+        "vector_store": vector_store_kind(),
         },
         "security": {
             "jwt_ttl_hours": settings.jwt_ttl_hours,
