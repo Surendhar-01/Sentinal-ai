@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     data_dir: str = ""
     database_url: str = ""
     cors_origins: str = "http://localhost:5173"
+    allow_localhost_origins: bool = True
     embedding_provider: str = "hash"
     embedding_model: str = "nomic-embed-text"
     ollama_url: str = "http://localhost:11434"
@@ -49,6 +50,10 @@ class Settings(BaseSettings):
     @property
     def uploads_dir(self) -> Path:
         return Path(self.data_dir) / "uploads"
+
+    @property
+    def cors_origin_list(self) -> list[str]:
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
 
 settings = Settings()

@@ -53,14 +53,19 @@ from .services.vector_store import vector_store, vector_store_kind
 
 Base.metadata.create_all(engine)
 MIGRATED_COLUMNS = ensure_columns(engine, Base.metadata)
+LOCALHOST_ORIGIN_PATTERN = r"^http://(localhost|127\.0\.0\.1)(:\d+)?$"
 app = FastAPI(title="SENTINEL-AI API", version="2.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins.split(","),
+    allow_origins=settings.cors_origin_list,
+    allow_origin_regex=LOCALHOST_ORIGIN_PATTERN if settings.allow_localhost_origins else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+print(f"[sentinel] CORS allowed origins: {settings.cors_origin_list}")
+if settings.allow_localhost_origins:
+    print("[sentinel] CORS also allows any http://localhost / 127.0.0.1 port (dev convenience)")
 
 with SessionLocal() as seed_db:
     seed_users(seed_db)
