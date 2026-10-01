@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, BrainCircuit, Workflow, FileText, LockKeyhole, Cpu, Server, CheckCircle2, ChevronRight, Lock, Network, Cog } from 'lucide-react';
 import '../landing.css';
+import Globe3D from '../components/Globe3D';
 
 export default function LandingPage({ onEnterApp }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -45,6 +46,9 @@ export default function LandingPage({ onEnterApp }) {
 
       {/* Hero Section */}
       <div className="lp-hero">
+        <div className="lp-hero-globe">
+          <Globe3D size={250} label="Rotating wireframe globe representing air-gapped sovereign infrastructure" />
+        </div>
         <h1>Cloud-Tier AI. <br/><span>Zero Cloud Risk.</span></h1>
         <p>The first fully air-gapped, agentic AI workbench built for defense, energy, and critical industries. Automate your most sensitive knowledge work entirely on your own hardware.</p>
         <div className="lp-hero-ctas">

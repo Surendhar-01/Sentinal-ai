@@ -39,10 +39,9 @@
 }
 
 .metric:hover {
-  transform: translateZ(26px) translateY(-6px) rotateX(5deg);
-  border-color: #8fc0b1;
+  border-color: #90CDF4;
   box-shadow:
-    0 22px 44px -14px rgba(8, 123, 93, 0.3),
+    0 22px 44px -14px rgba(49, 130, 206, 0.3),
     0 6px 14px rgba(28, 55, 48, 0.07);
 }
 
@@ -56,8 +55,7 @@
 }
 
 .panel:hover {
-  transform: translateZ(14px) rotateY(-1.1deg);
-  border-color: #b9d3ca;
+  border-color: #CBD5E0;
   box-shadow:
     0 18px 38px -16px rgba(28, 55, 48, 0.22),
     0 7px 22px rgba(28, 55, 48, 0.05);
@@ -73,9 +71,8 @@
 }
 
 .agent-card:hover {
-  transform: translateZ(30px) translateY(-5px) rotateX(4deg) rotateY(-2.4deg);
-  border-color: #8fc0b1;
-  box-shadow: 0 24px 48px -16px rgba(8, 123, 93, 0.32);
+  border-color: #90CDF4;
+  box-shadow: 0 24px 48px -16px rgba(49, 130, 206, 0.32);
 }
 
 /* --- Sovereignty strip: recede on hover --------------------- */
@@ -85,7 +82,6 @@
 }
 
 .sovereignty:hover {
-  transform: translateZ(18px) rotateX(2deg);
 }
 
 /* --- Buttons: press into the surface ----------------------- */
@@ -111,7 +107,7 @@
 .searchbar button:hover,
 .login-card button:hover {
   transform: translateZ(16px) translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(8, 123, 93, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(49, 130, 206, 0.45);
 }
 
 .primary:active,
@@ -173,12 +169,12 @@ nav button:hover {
 
 nav button.active {
   transform: translateZ(20px);
-  box-shadow: 0 10px 22px -10px rgba(8, 123, 93, 0.5);
+  box-shadow: 0 10px 22px -10px rgba(49, 130, 206, 0.5);
 }
 
 nav button.active::before {
   box-shadow:
-    0 0 14px rgba(8, 123, 93, 0.5),
+    0 0 14px rgba(49, 130, 206, 0.5),
     inset 0 0 6px rgba(255, 255, 255, 0.45);
 }
 
@@ -289,13 +285,11 @@ nav button.active::before {
 .proof-item:hover,
 .evidence article:hover,
 .user-row:hover {
-  transform: translateX(6px) translateZ(8px);
 }
 
 .audit-list > div:hover,
 .audit-list > div.selected,
 .setting-rows > div:hover {
-  transform: translateX(4px);
 }
 
 /* --- Accessibility ----------------------------------------- */
